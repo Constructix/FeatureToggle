@@ -6,39 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace ProductsAPI.Controllers
 {
-
-    public interface IProductService
-    {
-        public IEnumerable<Product> GetAllProducts();
-    }
-
-    public class ProductService : IProductService
-    {
-        private readonly List<Product> products;
-
-        public ProductService(List<Product> products)
-        {
-            this.products = products;
-        }
-
-        public IEnumerable<Product> GetAllProducts() => products.AsEnumerable();
-    }
-
-    public class Product
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public DateTimeOffset EffectiveFrom { get; set; }
-        public DateTimeOffset? EffectiveTo { get; set; }
-        public int unitPrice { get; set; } // store monetary value in Cents then divide by 100 for dollar amount.
-
-    }
-
-
-
-
-
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

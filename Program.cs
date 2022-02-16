@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
+using ProductsAPI.APIDomain;
 using ProductsAPI.Controllers;
 using ProductsAPI.Services;
 
@@ -60,7 +61,7 @@ List<Product> BuildProductList()
        },
        new Product()
         {
-            Id = 1,
+            Id = 2,
             Name = "120x90 Pine Post",
             Description = "Pine Posts - Construction",
             unitPrice = 2360,
