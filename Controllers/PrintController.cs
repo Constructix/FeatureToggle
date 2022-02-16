@@ -1,19 +1,23 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ProductsAPI.Services;
 
-namespace ProductsAPI.Controllers;
-
-[ApiController]
-[Route("[controller]`")]
-public class PrintController : ControllerBase
+namespace ProductsAPI.Controllers
 {
-    private readonly ICompleteOrderService _completeOrderService;
 
-    public PrintController(ICompleteOrderService completeOrderService)
+    [ApiController]
+    [Route("[controller]`")]
+    public class PrintController : ControllerBase
     {
-        _completeOrderService = completeOrderService;
-    }
+        private readonly ICompleteOrderService _completeOrderService;
 
-    [HttpGet]
-    public async Task<IActionResult> PrintEnabled() => new OkObjectResult(await _completeOrderService.ProcessAsync());
+        public PrintController(ICompleteOrderService completeOrderService)
+        {
+            _completeOrderService = completeOrderService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> PrintEnabled() =>
+            new OkObjectResult(await _completeOrderService.ProcessAsync());
+    }
 }

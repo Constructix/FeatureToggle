@@ -1,7 +1,9 @@
-namespace ProductsAPI.APIDomain;
-
-public class ToggleSettings
+namespace ProductsAPI.APIDomain
 {
-    public bool PrintingEnabled { get; set; }
-    public bool ProcessServiceOrdersEnabled { get;  set; }
+
+    public class ToggleSettings
+    {
+        public bool PrintingEnabled { get; set; }
+        public bool ProcessServiceOrdersEnabled { get; set; }
+    }
 }

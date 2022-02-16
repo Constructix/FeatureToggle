@@ -1,23 +1,27 @@
+using System.Threading.Tasks;
 using Microsoft.FeatureManagement;
 using ProductsAPI.APIDomain;
 using ProductsAPI.Controllers;
 
-namespace ProductsAPI.Services;
-
-public class CompleteOrderService :ICompleteOrderService
+namespace ProductsAPI.Services
 {
-    private readonly IFeatureManager _featureManager;
 
-    public CompleteOrderService(IFeatureManager featureManager)
+    public class CompleteOrderService : ICompleteOrderService
     {
-        _featureManager = featureManager;
-    }
-    public async Task<ToggleSettings> ProcessAsync()
-    {
-        var printEnabled = await _featureManager.IsEnabledAsync("Printing");
-        var processOrdersEnabled = await _featureManager.IsEnabledAsync("ProcessServiceOrders");
+        private readonly IFeatureManager _featureManager;
 
-        return new ToggleSettings()
-            { PrintingEnabled = printEnabled,ProcessServiceOrdersEnabled = processOrdersEnabled };
+        public CompleteOrderService(IFeatureManager featureManager)
+        {
+            _featureManager = featureManager;
+        }
+
+        public async Task<ToggleSettings> ProcessAsync()
+        {
+            var printEnabled = await _featureManager.IsEnabledAsync("Printing");
+            var processOrdersEnabled = await _featureManager.IsEnabledAsync("ProcessServiceOrders");
+
+            return new ToggleSettings()
+                { PrintingEnabled = printEnabled, ProcessServiceOrdersEnabled = processOrdersEnabled };
+        }
     }
 }

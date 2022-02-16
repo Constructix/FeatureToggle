@@ -1,4 +1,9 @@
+using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.FeatureManagement;
 using ProductsAPI.Controllers;
 using ProductsAPI.Services;
@@ -31,7 +36,7 @@ app.UseCors(x =>  x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 //app.UseCors(x => x.WithOrigins("http://127.0.0.1:5500")
 //                .AllowAnyMethod()
 //                .AllowAnyHeader());
-Console.WriteLine("Only allowing from http://127.0.0.1:5500/");
+//Console.WriteLine("Only allowing from http://127.0.0.1:5500/");
 
 app.UseHttpsRedirection();
 
@@ -62,3 +67,4 @@ List<Product> BuildProductList()
             EffectiveFrom = DateTimeOffset.Parse("01/01/2022")
         }};
 }
+

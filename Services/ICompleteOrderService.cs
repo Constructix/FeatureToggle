@@ -1,8 +1,11 @@
+using System.Threading.Tasks;
 using ProductsAPI.APIDomain;
 
-namespace ProductsAPI.Services;
-
-public interface ICompleteOrderService
+namespace ProductsAPI.Services
 {
-    public Task<ToggleSettings> ProcessAsync();
+
+    public interface ICompleteOrderService
+    {
+        public Task<ToggleSettings> ProcessAsync();
+    }
 }
