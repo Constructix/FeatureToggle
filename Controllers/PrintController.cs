@@ -6,7 +6,7 @@ namespace ProductsAPI.Controllers
 {
 
     [ApiController]
-    [Route("[controller]`")]
+    [Route("[controller]")]
     public class PrintController : ControllerBase
     {
         private readonly ICompleteOrderService _completeOrderService;
